@@ -1,0 +1,75 @@
+\documentclass[11pt]{report}
+\usepackage{amsmath,amsthm}
+\usepackage{chngcntr}                                 
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\counterwithin*{example}{chapter} 
+\counterwithin*{example}{subsection} 
+\theoremstyle{definition}
+\newtheorem{q}{}
+\counterwithin*{q}{chapter} 
+\counterwithin*{q}{subsection} 
+ \usepackage{booktabs}
+
+\usepackage{multicol}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\graphicspath{{Graphics/}}
+
+\author{Tarang Srivastava}
+
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+\newcommand{\laplace}[1]{$ \mathcal{L}  \left\{ #1 \right\}$}
+\newcommand{\laplaceMath}[1]{ \mathcal{L}  \left\{ #1 \right\}}
+\newcommand{\laplaceMathInverse}[1]{ \mathcal{L}^{-1}  \left\{ #1 \right\}}
+\newcommand{\laplaceMathComplete}[1]{ \mathcal{L}  \left\{ #1 \right\} = \int^\infty_0 e^{-st} #1 dt}
+\newcommand{\diff}[2]{\dfrac{d #1}{d #2}}
+\newcommand{\pdiff}[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand{\sdiff}[2]{\dfrac{d^2 #1}{d {#2}^2}}
+\newcommand{\putpic}[1]{
+		\centering
+		\includegraphics[width=10cm]{#1}
+}
+\newcommand{\heaviside}[1]{u_{#1} (t)}
+\begin{document}
+	
+	\begin{titlepage}
+		\begin{center}
+			\vspace*{1cm}
+			\Huge
+			\textbf{Differential Equations}\\
+			\vspace{0.5cm}
+			\LARGE
+			A Concise Review of Elementary Differential Equations\\
+			\vspace{1.5cm}
+			\textbf{Tarang Srivastava}\\
+			\vfill
+			\vspace{0.8cm}
+			\Large
+			Dr. Mesut \c{C}akir\\
+			Differential Equations and Complex Analysis\\
+			South Brunswick High School\\
+			14 February 2018
+		\end{center}
+	\end{titlepage}
+	
+	\tableofcontents	
+	\pagebreak
+	
+	\input{Chapters/chapter01}
+	\input{Chapters/chapter02}
+	\input{Chapters/chapter03}
+	\input{Chapters/chapter04}
+	\input{Chapters/chapter05}
+	\input{Chapters/chapter06}
+	\input{Chapters/chapter07}
+	\input{Chapters/chapter09}
+	\input{Chapters/chapter10}
+\end{document}

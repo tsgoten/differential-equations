@@ -1,0 +1,114 @@
+\chapter{Systems of First Order Linear Equations}
+In this chapter we will skip on reviewing how to solve linear equations, and solve for linear independence. We will only discuss how to solve differential equations using matrices. 
+\section{Homogeneous Linear Systems with Constant Coefficients}
+We will consider solving functions of the form 
+\[ \textbf{x'} = \textbf{Ax} \]
+\begin{example}
+	Find the general solution of the system 
+	\[ 
+		\textbf{x'} = 
+		\left(
+		\begin{matrix}
+			2 & 0 \\
+			0 & -3 
+		\end{matrix}
+		\right) \textbf{x}
+	 \]
+	 Since this is a diagonal matrix we find 
+	\[ x_1 ' = 2x_1, \indent x_2' = -3x_2 \]
+	The solution for these equations is 
+	\[ x_1 = c_1 e^{2t}, \indent x_2 = c_2e^{-3t}\]
+	The solutions are 
+	\begin{align*}
+		\textbf{x}^{(1)}(t) = \left(\begin{matrix}
+		1 \\ 0
+		\end{matrix}\right) e^{2t} && \textbf{x}^{(2)}(t) = \left(\begin{matrix}
+		0 \\ 1
+		\end{matrix}\right) e^{-3t}
+	\end{align*}
+\end{example}
+We know that the solution of the equation will be of the form 
+\begin{align*}
+	\textbf{x} = \xi e^{rt} \\
+	r \xi e^{rt} = \textbf{A} \xi e^{rt} \\ 
+	\intertext{Upon cancelling the scalar factor, we obtain} 
+	(\textbf{A} - r\textbf{I})\xi = \textbf{0}
+	\intertext{Where \textbf{I} is the identity matrix  and the solution to this equation is simply the eigenvectors}
+\end{align*}
+\begin{example}
+	\[ \textbf{x}' = \left(\begin{matrix}
+		1 & 1 \\ 
+		4 & 1 
+	\end{matrix}\right) \textbf{x} \]
+	Assuming that the solution will be of the form $ \textbf{x} = \xi e^{rt} $ 
+	\[ \left(\begin{matrix}
+	1-r & 1 \\ 
+	4 & 1 -r
+	\end{matrix}\right) \left(\begin{matrix}
+	\xi_1 \\ 
+	\xi_2
+	\end{matrix}\right) =  \left(\begin{matrix}
+	0 \\ 
+	0
+	\end{matrix}\right) \]
+	We then take the determinant of the matrix on the right side and find $ r^2 - 2r - 3 = (r-3)(r+1) = 0 $. This gives us the eigenvalues, solutions to the equations, $ r =3, -1 $ We then proceed by finding the eigenvectors to the associated eigenvalues 
+	\begin{align*}
+		\intertext{For when $ r_1 =3 $ we get} 
+		\xi^{(1)} = \left(\begin{matrix} 1 \\2\end{matrix}\right)
+		\intertext{For when $ r_2 =-1 $ we get} 
+		\xi^{(2)} = \left(\begin{matrix} 1 \\-2\end{matrix}\right)
+		\intertext{These are the corresponding values to the solution}
+		\textbf{x}^{(1)} (t) = \left(\begin{matrix} 1 \\2\end{matrix}\right) e^{3t} && 
+		\textbf{x}^{(2)} (t) = \left(\begin{matrix} 1 \\-2\end{matrix}\right) e^{-t} 
+	\end{align*}
+	The direction field of this system would look like 
+	\putpic{model752}
+\end{example}
+\section{Complex Eigenvalues}
+We will now consider the situation where the eigenvalues may be complex numbers. We will return to the form \[ \textbf{x'} = \textbf{Ax} \] where \textbf{A} is the coefficient matrix. The eigenvalues are given by the roots of \[ det(\textbf{A}-r\textbf{I}) = 0\] and that the eigenvectors that satisfy this condition are given by 
+\[ (\textbf{A} - r\textbf{I}) \xi = \textbf{0}\] if \textbf{A} is real then the coefficients in the equation are also real, but it is also possible for the roots to appear as a complex number. 
+\begin{example}
+	Consider th example 
+	\begin{align*}
+		\textbf{x}' = \left(\begin{matrix}
+		-1/2 & 1 \\ 
+		-1 & -1/2 
+		\end{matrix}\right) \textbf{x} 
+		\intertext{making the assumptions we made previously we find that the eigenvalues are}
+		r_1 = -1/2 + i && 		r_2 = -1/2 - i 
+		\intertext{We find that the corresponding eigenvectors are}
+		\xi^{(1)} = \left(\begin{matrix} 1 \\ i \end{matrix}\right), && \xi^{(2)} = \left(\begin{matrix} 1 \\ -i \end{matrix}\right)
+		\intertext{Thus the fundamental set of solutions is} 
+		\textbf{x}^{(1)} (t) = \left(\begin{matrix} 1 \\i\end{matrix}\right) e^{(-1/2 + i)t} && 
+	\textbf{x}^{(2)} (t) = \left(\begin{matrix} 1 \\-i\end{matrix}\right) e^{(-1/2 - i)t}
+	\end{align*}
+\end{example}
+The conditions that help us analyze the complex eigenvalues are such 
+\begin{enumerate}
+	\item $ \lambda $ have opposite signs; \textbf{x = 0} is a saddle point
+	\item $ \lambda $ have same sign but are unequal; \textbf{x = 0} is a node
+	\item $ \lambda $ are complex with nonzero real part; \textbf{x = 0} is a spiral point
+\end{enumerate}
+\section{Fundamental Matrices}
+	The structure of the solution of linear differential equations can be furthered using the idea of a fundamental matrix. Suppose that $ \textbf{x}^{(1)}(t)...\textbf{x}^{(n)}(t)$ form a fundamental set of solutions for the equation \[ \textbf{x'} = \textbf{P}(t)\textbf{x} \] Note that the fundamental matrix is nonsingular since its columns are linear independent vectors. 
+	\begin{example}
+		Find a fundamental matrix for the system \[ \textbf{x}' = \left(\begin{matrix}
+		1 & 1 \\ 4 & 1 
+		\end{matrix}\right) \textbf{x}\]
+		Earlier we found that the set of solutions is 
+		\begin{align*}
+			\textbf{x}^1 (t) = \left(\begin{matrix}
+				e^{3t} \\ 2e^{3t}
+				\end{matrix}\right) && 
+				\textbf{x}^2 (t) = \left(\begin{matrix}
+				e^{-t} \\ -2e^{-t}
+				\end{matrix}\right)
+		\end{align*}
+		are linearly independent so the fundamental matrix is 
+		\[ \Psi(t) = \left(\begin{matrix}
+				e^{3t} & e^{-t} \\ 2e^{3t} & -2e^{-t}
+		\end{matrix}\right) \]
+	\end{example}
+	Since $ \Psi $ gives the fundamental matrix any multiple by a constant vector will also be a solution. This is expressed as such 
+	\[ \textbf{x} = \Psi(t) \textbf{c} \]
+

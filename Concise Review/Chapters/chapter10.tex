@@ -1,0 +1,27 @@
+\chapter{Partial Differential Equations and Fourier Series}
+This chapter will consider solving problems where the solution is only determined by two boundary values, rather than the initial values we have discussed thus far. Fourier series will also be discussed and how to represent a solutions as the sum of a Fourier series. The Fourier transform will not be discussed, refer to the complex analysis concise review for that information.  
+\section{Two Point Boundary Value Problems} 
+To begin the section on boundary value problems lets refer back to a familiar form of a second order differential equation 
+\[  y'' + p(x)y' + q(x)y = g(x) \] with the boundary conditions \[ y(\alpha) = y_0, \indent y(\beta) = y_1 \] 
+Two important terms that are used to classify these differential equations: a problem is classified as \textbf{homogeneous} when the values for $ g $ are always zero and $ y_0 $ and $ y_1 $ are zero as well, otherwise the problem is \textbf{nonhomogeneous}
+\begin{example}
+	Solve the boundary value problem 
+	\begin{align*}
+		y'' + 2y = 0, && y(0 ) = 1, \indent y(\pi) = 0
+		\intertext{The solution is simply}
+		y = c_1 \cos \sqrt{2}x + c_2 \sin \sqrt{2}x 
+		\intertext{The first boundary condition requires that the value for $ c_1 $ be equal to $ 1 $ the second boundary condition requires that $ c_2 $  be equal to $ -\cot \sqrt{2} \pi $. Thus the solution to differential equation is}
+		y = \cos \sqrt{2}x - \cot \sqrt{2}\pi \sin \sqrt{2}x 
+		\intertext{This is an examples of a case where the solution is unique and the problem is nonhomogeneous}
+	\end{align*}
+\end{example}
+\begin{example}
+	Solve the boundary value problem 
+	\begin{align*}
+	y'' + y = 0, && y(0)=1, \indent y(\pi)=a \\
+	\intertext{where a is a given number} 
+	\intertext{The general solution of this differential equation is}
+	y = c_1 \cos x + c_2 \sin x 
+	\intertext{From the first boundary condition we find that $ c_1 =1  $. The second boundary condition now requires that $ -c_1 = a $. These two conditions on $ c_1 $ are incompatible if $ a \neq -1 $, so the problem has no solution in this case. if $ a = -1 $ then both boundary conditions are satisfied for  }
+	\end{align*}
+\end{example}

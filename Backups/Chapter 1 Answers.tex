@@ -1,0 +1,37 @@
+\documentclass[11pt]{article}
+\author{Tarang Srivastava}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{esdiff}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+	\begin{multicols*}{2}
+		\begin{center}
+			\begin{large}
+				DECA Chapter 1 Answer Key
+			\end{large}
+			\begin{small}
+				\\by Tarang Srivastava
+			\end{small}
+		\end{center}
+	
+		\begin{enumerate}
+			\item $\diff{p}{t} = 0.5p-450$
+			\begin{enumerate}
+				\item general solution
+					\begin{align}
+						\dfrac{1}{p-900} dp = \dfrac{1}{2}dt\\
+						\diff{}{t} \left(\ln \left| p-900 \right| \right) = dt \\
+						\intertext{Integrate both sides to obtain} 
+						\ln \left| p-900 \right| = t + C \\
+						e^{t + C} = p-900
+						\intertext{$e^{t+C}$ gives $ke^t$ }
+						p = ke^{t/2} + 900
+ 					\end{align}
+ 				\item 
+			\end{enumerate}
+		\end{enumerate}
+	\end{multicols*}
+\end{document}

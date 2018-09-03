@@ -1,0 +1,68 @@
+\documentclass[11pt]{article}
+\author{Tarang Srivastava}
+\usepackage{amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{esdiff}
+\usepackage[margin=.25in]{geometry}
+\geometry{letterpaper,textwidth=7.3in,hmarginratio=1:1,	textheight=9in,vmarginratio=1:1,heightrounded}
+\newcommand{\makechaptertitle}[1]{
+\begin{center}
+	\begin{large}
+		DECA Chapter #1 Test
+	\end{large}
+	\begin{small}
+		\\by Tarang Srivastava
+	\end{small}
+\end{center}
+}
+\theoremstyle{definition}
+\newtheorem{q}{}
+\begin{document}
+	\begin{multicols*}{2}
+		\makechaptertitle{9-10}
+		\begin{q}
+			Classify the following information given information about the eigenvalues of a system of the form \[ \textbf{x}' = \textbf{Ax} \]
+			\begin{enumerate}
+				\item What is the stability if both eigenvalues are positive?
+				\item What is the type of critical point if both eigenvalues are negative?
+				\item what is critical point, and the stability if one eigenvalue is positive and the other is negative? 
+				\item What is the stability if there is only one negative eigenvalue? 
+				\item Draw a phase plane of a node. 
+				\item Draw a phase portrait of spiral point. 
+			\end{enumerate} 
+		\end{q}
+		\begin{q}
+			Find the critical points for the system and classify the critical points by looking at the direction fields
+			\[ dx/dt = -(x-y)(1-x-y) \] \[ dy/dt = x(2+y) \]
+		\end{q}
+		\begin{q}
+			Find the critical point where the system is stable 
+			\[ dx/dt = x(1-x-y) \]
+			\[ dy/dt = y(0.75 - y - 0.5x) \]
+		\end{q}
+		\begin{q}
+			Solve the boundary value problem 
+			\[ y'' + 2y = 0 \]
+			for $ y(0) = 1 $, and $ y(\pi) = 0 $
+		\end{q}
+		\begin{q}
+			Solve the boundary value problem 
+			\[ y'' + y = 0 \]
+			for $ y(0) = 1 $, and $ y(\pi) = a $ where a is just some number
+		\end{q}
+		\begin{q}
+			Solve the boundary value problem 
+			\[ y'' + y = 0 \]
+			for $ y(0) = 0 $, and $ y(\pi) = 0 $
+		\end{q}
+		\begin{q}
+			Determine the Fourier series for the function 
+			\[ f(x) = \begin{cases}
+				-x, & -2 \leq x < 0, \\
+				x, & 0 \leq x < 2
+			\end{cases} \]
+			\[ f(x+4) = f(x) \]
+		\end{q}
+	\end{multicols*}
+\end{document}

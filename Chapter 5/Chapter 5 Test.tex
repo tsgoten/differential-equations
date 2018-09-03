@@ -1,0 +1,58 @@
+\documentclass[11pt]{article}
+\author{Tarang Srivastava}
+\usepackage{amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{esdiff}
+\usepackage[margin=.25in]{geometry}
+\geometry{letterpaper,textwidth=7.3in,hmarginratio=1:1,	textheight=9in,vmarginratio=1:1,heightrounded}
+\newcommand{\makechaptertitle}[1]{
+\begin{center}
+	\begin{large}
+		DECA Chapter #1 Test
+	\end{large}
+	\begin{small}
+		\\by Tarang Srivastava
+	\end{small}
+\end{center}
+}
+\theoremstyle{definition}
+\newtheorem{q}{}
+\begin{document}
+	\begin{multicols*}{2}
+		\makechaptertitle{5}	
+		
+		\begin{q}
+			
+			Write the series \[ \sum \limits_{n=2}^{\infty} (n+2)(n+1)a_n(x-x_0)^{n-2}  \] as a series whose generic term involves $ (x-x_0)^n $ rather than $ (x-x_0)^{n-2} $
+			
+		\end{q}
+		\begin{q}
+			Determine the radius of convergence of the power series \[ \sum \limits_{n=1}^\infty \dfrac{(x+1)^n}{n2^n} \]
+		\end{q}
+		\begin{q}
+			Find a series solution of the equation \[ y(x)'' + y(x) = 0, \indent -\infty < x < \infty \] Follow the steps to receive partial credit
+			\begin{enumerate}
+				\item Find $ y'', y', y $ for the power series of the form $ \sum \limits_{n=0}^\infty a_nx^n$
+				\item Express the sum of the two power series as one 
+				\item Solve a recursive expression
+				\item Find a separate power series for even and odd
+				\item Combine the two for the final answer
+				\item Express $ \sin $ and $ \cos $ as an initial value condition for the final answer
+			\end{enumerate}
+		\end{q}
+		\begin{q}
+			Find a power series solution for Airy's equation 
+			\[ y'' - xy = 0 \]
+		\end{q}
+		\begin{q}
+			Find a solution for Airy's equation in powers of $ x-1 $
+		\end{q}
+		\begin{q}
+			Solve \[ 2x^2 y'' + 3xy' - y = 0, \indent x> 0 \]
+		\end{q}
+		\begin{q}
+			Solve \[ x^2 y'' + 5xy' + 4y = 0, \indent x>0 \]
+		\end{q}
+	\end{multicols*}
+\end{document}

@@ -1,0 +1,84 @@
+\documentclass[11pt]{article}
+\author{Tarang Srivastava}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage[margin=1in]{geometry}
+\theoremstyle{definition}
+\newtheorem{theorem}{Example}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\begin{document}
+\begin{titlepage}
+
+    	\begin{center}
+        \vspace*{1cm}
+        \Huge
+        \textbf{Differential Equations}
+      		
+        \vspace{0.5cm}
+        \LARGE
+        A Concise Review of Elementary Differential Equations
+        
+        \vspace{1.5cm}
+        
+        \textbf{Tarang Srivastava}
+        
+        \vfill
+        
+        \vspace{0.8cm}
+        
+        %\includegraphics[width=0.4\textwidth]{university}
+        
+        \Large
+        Dr. Cakir\\
+        Differential Equations and Complex Analysis\\
+        South Brunswick High School\\
+        14 February 2018
+        
+    \end{center}
+	\end{titlepage}
+\tableofcontents	
+\pagebreak
+
+\section{Introduction}
+\subsection{Direction Fields}	
+Equations containing derivatives are differential equations. Differential Equations can be modeled by directional field (slope field). Directional fields are given in the form 
+$$\dfrac{dy}{dt} = f(t,y)$$
+<Insert image here> 
+Directional fields can be used to find the equilibrium solution. 
+\subsection{Solutions of Some Differential Equations}
+Consider the following differential equation
+\begin{theorem} %Example 1
+\begin{align}
+\dfrac{dp}{dt} = \dfrac{p-900}{2} \\ 
+\dfrac{dp / dt}{p-900} = \dfrac{1}{2} \\
+\dfrac{d}{dt} \ln | p - 900 | = \dfrac{1}{2} \\
+\intertext{Integrate both sides}
+ \ln|p-900| = t/2 + C\\
+ |p-900| = e^C e^{t/2}\\
+ p-900 = \pm e^C e^{t/2}\\
+\intertext{Note how $e^C$ is simply a constant c and the $\pm$ can be replaced by the c}
+ p = 900 + ce^{t/2}
+\end{align}
+The solution to this differential equation is given as such where c is any non zero constant
+\end{theorem}
+The general solution can be found using a similar method 
+\begin{definition}{General Solution}
+\begin{align}
+\intertext{given a general differential equation}
+\dfrac{dy}{dt} = ay - b \\
+\intertext{with initial condition}
+y(0) = y_0\\
+\dfrac{dy}{dt} = (y - b/a)a\\
+\dfrac{dy/dt}{y-b} = a\\
+\intertext{Integrating both sides}
+ln|y-(b/a)| = at + C \\
+y = b/a + ce^{at}
+\intertext{Given the initial condition C can be replaced, giving}
+ y = (b/a) + [y_0 - (b/a)]e^{at}
+\end{align}
+\end{definition}
+
+\end{document}

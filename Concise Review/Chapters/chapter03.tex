@@ -1,0 +1,277 @@
+\chapter{Second Order Differential Equations}
+\section {Introduction}
+A general form we will use for second order linear equations 
+$$P(t) y'' + Q(t)y' + R(t)y = G(t)$$
+If we divide it out by $ P(t) $ we get another form that is useful in solving these equations. 
+\[ y'' + p(t)y' + q(t)y = g(t) \]
+A second linear equation can be specified as being \textbf{homogeneous} if the $ g(t) $ or the $ G(t) $ term is 0. Thus \textbf{nonhomogeneous} is when this is not the case. It is much easier to solve when the coefficients are constants. 
+\section{Homogeneous Equations with Constant Coefficients}
+	Second order ordinary differential equation follows the form $$\sdiff{y}{t} = f \left(t, y, \diff{y}{t} \right) $$
+	\begin{example}
+		Find the general solution of $y'' + 5y' + 6y = 0$
+		\begin{gather*}
+			\intertext{We start by assuming that y is of some form $e^{rt}$}
+			(r^2+5r+6)e^{rt} = 0 \\
+			(r+2)(r+3) = 0\\
+			r_1 = -2\\	r_2=-3
+			\intertext{This gives the general solution}
+			y = c_1 e^{-2t} + c_2 e^{-3t}
+		\end{gather*}
+		Note that the solution is a linear combination of two $e^{rt}$ combinations. Also there are two constants and in order to solve the two constants you need both the initial value, and an initial slope. Lets consider the same example with initial values $y(0) = 2$ and at that point the slope = -1
+		\begin{align*}
+			\intertext{The two inital conditions are essentially}
+			y(0) = 2 && y'(0) = -1 
+			\intertext{Solving for the initial condition we get the two equations}
+			2 = c_1 + c_2 && -1 = -2c_1 - 3c_2
+		\end{align*} 
+		The solutions are $c_1 = 5$ and $c_2 = -3$ giving the particular solution as $y = 5e^{-2t} - 3e^{-3t}$
+	\end{example}
+
+	The previous example introduces us to the idea of second order differential equations, and how one would go about solving a simple problem like that. Now lets consider the more general equation 
+	\[ ay'' + by' + cy = 0 \]
+	Note that this is a homogeneous equation with constant coefficients. We will begin by assuming that the function $ y $ is of some for $ e^rt $. following this assumption we find that 
+	\begin{align*}
+		\intertext{if $ y = e^rt $ then}
+		y' = re^{rt} && y'' = r^2e^{rt}
+	\end{align*}
+	replacing the values in the original equation we get
+	\[ 	ar^2e^{rt} + bre^{rt} + ce^{rt} = 0 \]
+	At this point it should be clear that we can factor out $ e^rt $ and since it is never 0, the resulting equation must be equal to 0. Note that it is also a quadratic, so now it is basically an Algebra 1 problem
+	\[ (ar^2 + br + c)e^{rt} = 0 \]
+	The previous equation is called the \textbf{characteristic equation}. Lets consider the usefulness of the characteristic equation. 
+	\begin{example}
+		Find the solution of the initial value problem
+		\[ 4 y'' - 8y' + 3y = 0 \]
+		with initial values $ y(0) = 2 $, and $ y'(0) = \dfrac{1}{2} $\\
+		If we assume that $ y $ is a function of the form $ e^{rt} $ then the characteristic equation is 
+		\[ 4r^2 - 8r+3 = 0 \]
+		The roots are then $ r = 3/2 $ and $r = 1/2$ therefore the general solution is
+		\[ y = c_1 e^{3t/2} + c_2 e^{t/2} \]
+		This gives the two solutions 
+		\begin{align*}
+			c_1 + c_2 = 2, && \dfrac{3}{2} c_1 + \dfrac{1}{2}c_2 = \dfrac{1}{2}
+		\end{align*}
+		Which gives the two values $ c_1 = -\dfrac{1}{2} $ and $ c_2 = \dfrac{5}{2} $ and the particular solution
+		\[ y =  -\dfrac{1}{2}e^{3t/2} + \dfrac{5}{2}e^{t/2}\]
+	\end{example}
+\section{The Wronskian}
+Lets start by considering the general form of a second order linear differential equation
+\[ ay'' + by' + c = 0 \]
+Now lets consider a differential operator, denoted $ L $ that will give such results
+\[ L[y] = y'' + p(t)y' + q(t)y = 0 \]
+The initial values for the operator are also considered 
+\begin{align*}
+	y(t_0) = y_0, && y'(t_0)=y'_0
+\end{align*}
+lets consider the \textbf{Existence and Uniqueness Theorem} which states
+\begin{align*}
+	\intertext{Consider the initial value problem}
+	y''+p(t)y' + q(t)y = g(t), && y(t_0) = y_0,&& y'(t_0) = y'_0
+\end{align*}
+where $ p $, $ q $ and $ g $ are continuous on an open interval $ I $ that contains the point $t_0$ then there is exactly one solution $ y = \phi(t)  $ of this problem, and the solution exists throughout the interval $ I $ \\
+\\
+This theorem says three main things
+\begin{enumerate}
+	\item The initial value problem \textit{has} a solution; in other words, a solution \textit{exists}
+	\item The initial value problem has \textit{only one} solution; that is, the solution is unique
+	\item The solution $ \phi $ is defined \textit{throughout the interval I} where the coefficients are continuous and is at least twice differentiable there.  
+\end{enumerate}
+\begin{example}
+	Okay, I know you did not understand any of that before. So consider this example
+	\begin{align*}
+		\intertext{Find the longest interval in which the solution of the initial value problem exists. }
+		(t^2-3t)y'' + ty' - (t+3)y = 0, && y(1)=2, && y'(1)=1
+		\intertext{is certain to exist.}
+		\intertext{We begin by solving this by first making it follow the form in the theorem}
+		y'' + \dfrac{t}{y^2+3t}y' - \dfrac{t+3}{t^2-3t}y = 0
+	\end{align*}
+	\begin{align*}
+	\intertext{This follows}
+		g(t) = 0, && p(t) = \dfrac{t}{y^2+3t}, && q(t)= -\dfrac{t+3}{t^2-3t}
+	\intertext{Which gives that $t \ne 3$ and $ t \ne 0 $. therfore splitting $ I $ into three separate intervals. Since 1 is less than but greater than 3 and 0, the interval for $ I $ is}
+	0<t<3
+	\end{align*}
+\end{example}
+Lets consider the \textbf{Principle of Superposition}. If $ y_1 $ and $ y_2 $ are two solutions of the differential equation
+\[ L[y] = y'' + p(t)y' + q(t)y = 0 \]
+Then the linear combination of $ c_1 y_1 + c_2 y_2 $ is also a solution.\\
+If the previous statement is true, that means it must satisfy the condition $ L[y] = 0 $.
+\begin{align*}
+	L[c_1 y_1 + c_2 y_2 ] &= [c_1 y_1 + c_2 y_2 ]'' + p[c_1 y_1 + c_2 y_2 ]' + q[c_1 y_1 + c_2 y_2 ] = 0 \\
+	&= c_1y_1'' + c_2y_2'' + c_1y_1' + c_2y_2' + c_1y_1 + c_2y_2 \\
+	&= c_1[y_1'' + y_1' + y_1] + c_2[y_2'' + y_2' + y_2]\\
+	&= c_1L[y_1] + c_2L[y_2]
+\end{align*}
+Since $ y_1 $ and $ y_2 $ are two solutions, then $ L[y_1] =0 $ and $ L[y_2] =0 $, and there $ L[c_1 y_1 + c_2 y_2 ] = 0$. And that is the proof. 
+
+\section {Complex Roots of Characteristic Equations}
+\[ y = c_1 e^{r_1 t} + c_2 e^{r_2 t}\]
+Lets consider the situation in which the value of $ r $ is a complex expression. This results when $ b^2 - 4ac $. We can represent the complex expression in the form 
+\[ r = \lambda + i \mu  \] 
+Thus the value for $ y $
+\[ y = e^{(\lambda \pm i \mu)t} \]
+Using the awe-so-famous Euler's formula 
+\[ e^{it} = \cos t + i \sin t  \]
+We first start by considering 
+\begin{align*}
+	e^{i \mu t} = \cos \mu t + i \sin \mu t 
+	\intertext{We consider the values for $r$ we found earlier and use}
+	e^{(\lambda + i \mu)t} &= e^{\lambda t} e^{i \mu t} \\
+	e^{(\lambda + i \mu)t} &= e^{\lambda t} (\cos \mu t + i \sin \mu t)
+\end{align*}
+This is the general form for when the roots are complex
+\begin{example}
+	\begin{align}
+		y'' + y' + y = 0 \\
+		\intertext{The characteristic equation for this is}
+		r^2 + r + 1 = 0\\
+		\intertext{Which gives the roots as}
+		r = -\dfrac{1}{2} \pm i\dfrac{\sqrt{3}}{2}
+		\intertext{If we just use the equation we derived earlier}
+		\lambda = -\dfrac{1}{2} \\ \nonumber
+		\mu = \dfrac{\sqrt{3}}{2}
+		\intertext{Which gives the general equation}
+		y = c_1 e^{-t/2}\cos(\sqrt{3}t/2) + c_2 e^{-t/2}\sin(\sqrt{3}t/2) 
+	\end{align}
+\end{example}
+\begin{example}
+	\begin{align}
+		\intertext{Find the solution of the initial value problem}
+		16y'' - 8y' + 145y = 0, \\ \nonumber
+		y(0) = -2, \indent y'(0)=1 
+		\intertext{The characteristic equation is $ 16r^2 - 8r + 145 = 0 $ and the roots are $ r = 1/4 \pm 3i $. We use the form we derived earlier.}
+		y = c_1e^{t/4} \cos 3t + c_2 e^{t/4} \sin 3t
+		\intertext{Then solving for the initial condition when $ t = 0 $}
+		y(0) = c_1 = -2 \\
+		y'(0) = \dfrac{1}{4} c_1 + 3 c_2 = 1 
+		\intertext{From which you get that $ c_2 = 1/2 $}
+		y = -2 e ^{t/4} \cos 3t + \dfrac{1}{2} e ^{t/4} \sin 3t
+	\end{align}
+	\putpic{ch3fig1}{Solution of the initial value problem $ 16y'' - 8y' + 145y = 0 $, $ y(0)=-2 $, $ y'(0)=1 $}\\
+	Solution of the initial value problem $ 16y'' - 8y' + 145y = 0 $, $ y(0)=-2 $, $ y'(0)=1 $
+\end{example}
+
+\section{Repeated Roots; Reduction of Order}
+
+As the section title suggests we will consider when the roots are the same, as in 
+\[ r_1 = r_2 = -b/2a\]
+The difficulty is that both the roots yield
+\[ y_1 (t) = e^{-bt/2a} \]
+\begin{example}
+	\begin{align}
+		\intertext{Solve the differential equation}
+		y'' + 4y' + 4y = 0 
+		\intertext{The characteristic equation is}
+		r^2 + 4r + 4 &= (r+2)^2 = 0 
+		\intertext{We know this gives $ r = -2 $ and therefore}
+		y (t)&= v(t) e^-2t \\
+		y'(t) &= v'(t) e^{-2t} -2 v (t) e^{-2t} \\
+		y''(t) &= v''(t) e^{-2t} - 4v'(t) e^{-2t} + 4v(t) e^{-2t} \\
+		\intertext{If we collect all the terms and plug them back into (3.11)}
+		[v'' - 4v' + 4v + 4v' - 8v + 4v] e^{-2t} = 0 
+		\intertext{Some terms are cancelled out and you are left with}
+		v'' e^{-2t} = 0
+		\intertext{This gives that $ v''(t) = 0 $. Then integrating we get}
+		v''(t) &= 0\\
+		v'(t) &= c_1 \\
+		v(t) &= c_1 t + c2 
+		\intertext{From (3.13) we get that}
+		y(t) e^{2t} = v(t) = c_1 t + c_2 
+		\intertext{therefore}
+		y(t) = c_1 te^{-2t} + c_2 e^{-2t}
+		\end{align}
+		This is general method for solving repeated roots problems. We can also notice the general solution form in this example. The repeated root we obtained was $ r = -2 $ so we can write the general form as
+		\[ \phi(t) = c_1 te^{rt} + c_2 e^{rt} \]
+\end{example}
+
+\begin{example}
+	given that $ y_1 (t) = t^{-1} $is a solution of \[ 2t^2 y'' + 3ty' -y = 0, \indent t>0 \] find a fundamental set of solutions 
+	\begin{align}
+		\intertext{We begin with how we usually have thus far}
+		y(t) = v(t) t^{-1}
+		\intertext{differentiating we get}
+		y' &= v't^{-1} - vt^{-2} \\
+		y'' &= v'' t^{-1}  - v' t^{-2} - v't^{-2} + 2vt^{-3} \nonumber \\
+		y'' &= v'' t^{-1}  - 2v' t^{-2} + 2vt^{-3}
+		\intertext{collecting terms and plugging them into the differential equation}
+		2v''t -4v' + 4vt^{-1} + 3v' - 3vt^{-1} - vt^{-1} \nonumber \\
+		2v''t - v' = 0
+		\intertext{We used anoter function $ w(t) = v'(t) $}
+		2w't - w = 0 \\
+		2w't = w \nonumber \\
+		\dfrac{1}{2t} = \dfrac{1}{w} \diff{w}{t} \nonumber \\
+		\diff{}{t}[\ln|w|] 	 = \dfrac{1}{2t} \nonumber \\
+		\ln |w| = \dfrac{1}{2} \ln t + C \nonumber \\
+		w = v' = ct^{1/2} 
+		\intertext{This follows}
+		v = \dfrac{2}{3} ct^{3/2} + k \\
+		\intertext{returning to (3.23) we get}
+		y = \dfrac{2}{3} c t^{1/2} + kt^{-1} 
+		\intertext{The second part is just a multiple of $ y_1 = t^{-1} $ where we started so we get}
+		y_2(t) = \dfrac{2}{3} c t^{1/2} 
+	\end{align}
+	
+\end{example}
+\section {Nonhomogeneous Equations; Method of Undetermined Coefficients}
+Lets return to the nonhomogeneous equation 
+\[ L[y] = y'' + p(t)y' + q(t)y  = g(t) \]
+if $ g(t) = 0 $ it is called a homogeneous equation.  \\
+The general solution of a homogeneous equation can be written in the form 
+\[ y = \phi (t) = c_1y_1 (t) + c_2 y_2(t) + Y(t) \]
+where $ y_1$ and $ y_2$ are fundamental set of solutions and $ Y $ is some specific solution of the nonhomogeneous equation. \\
+To solve the nonhomogeneous equation we need to solve these three things
+\begin{enumerate}
+	\item Find the general solution $ c_1 y_1 (t) + c_2y_2(t) $ of the corresponding homogenous equation. This solution is frequently called the complementary solution and may be denoted by $ y_c (t) $
+	\item Find some single solution $ Y(t) $ of the nonhomogeneous equation. Often this solution is called the particular solution
+	\item Add together the functions found in the two preceding steps 
+\end{enumerate}
+\begin{example}
+	Find a particular solution of \[ y'' - 3y' - 4y = 3e^{2t} \]
+	We seek a function Y such that the combination $ Y''(t) - 3Y'(t) - 4Y(t) $ is equal to $ 3e^{2t} $. Since the exponential function reproduces itself through differentiation, the most plausible way to achieve the desired result is to assume taht $ Y(t) $ is some multiple of $ e^{2t} $, that is, \[ Y(t) = Ae^{2t} \] where teh coefficient is yet to be determined. To find $ A  $ we calculate \[ Y'(t) = 2Ae^{2t}, \indent \indent  Y''(t) = 4Ae^{2t}\] and substitute for $ y $, $ y' $, and $ y'' $ We obtain \[ (4A - 6A -4 A)e^{2t} = 3e^{2t}\]
+	Hence $ -6Ae^{2t} $ must equal $ 3e^2t $, so $ A = -1/2 $. Thus a particular solution is \[ Y(t) = -\dfrac{1}{2} e^{2t} \]
+\end{example}
+\begin{example}
+	Find a particular solution of \[ y'' - 3y' -4y = 2 \sin t  \] By analogy with the previous example lets start by assuming that $ Y(t) = A \sin t $, where $ A $ is a constant to be determined. On substituting this in and rearranging the terms, we obtain \[ -5A \sin t - 3 A \cos t = 2 \sin t \] or \[ (2+5A) ] \sin t + 3 A \cos t = 0 \] 
+	The function $ \sin t $ and $ \cos t $ are linearly independent, so the equation can hold on an interval only if the coefficients $ 2 + 5A $ and $ 3A $ are both zero. These contradictory requirements mean that there is no choice of the constant $ A $ that makes the equation true for all $ t $. Thus we conclude that our assumption concerning $ Y(t) $ is inadequate. The appearance of the cosine term in the equation suggests that we modify our original assumption to include a cosine in $ Y(t) $, that is, \[ Y(t) = A \sin t  + B \cos t \] where $ A  $ and $ B $ are to be determined. Then 
+	\[ Y'(t) = A \cos t - B \sin t \] 
+	\[ Y''(t) = - A \sin t  - B \cos t \] 
+	By substituting these expressions in we get 
+	\[ (_A + 3B -4A) \sin t + (-B - 3A - 4B) \cos t = 2 \sin t \] To satisfy the equation we must match the coefficients of the sine and cosine on each side of the eqation thus 
+	\[ -5A + 3B = 2  \] \[ -3A -5B = 0 \]
+	Hence $ A = -5/17 $ and $ B = 3/17 $ , so a particular solution is 
+	\[ Y(t) = -\dfrac{5}{17} \sin t + \dfrac{3}{17} \cos t\] This is fun. 
+\end{example}
+\section {Variation of Parameters}
+This is a general method for solving for second order non homogeneous equations
+\begin{example}
+	Find a particular solution of \[ y'' + 4y = 3 \csc t \] We cannot use the method used in the previous methods so we will use a different approach \[ y'' + 4y = 0 \] and that the general solution is \[ y_c = c_1 \cos 2t + c_2 \sin 2t \] The basic idea is that we replace constants with functions \[ y_c = u_1(t) \cos 2t + u_2(t) \sin 2t \] we then differentiate and find 
+	\[ y' = -2u_1\sin 2t + 2 u_2 \cos 3t + u_1' \cos 2t + u_2 ' \sin 2t\] We set a condition such that the last two terms cancel out which follows that 
+	\[  y' = -2u_1\sin 2t + 2 u_2 \cos 3t \] further by differentiating once again we get 
+	\[ y'' = -4 u_1 \cos 2t - 4 u_2 \sin 2t - 2u_1' \sin 2t + 2u_2' \cos 2t  \] The substituting in to the original equation and simplifying we get 
+	\[ -2u_1' \sin 2t + 2u_2' \cos 2t = 3 \csc t \] then it is a matter of solving for the functions 
+	\[ u_2 ' = -u_1 \dfrac{\cos 2t}{\sin 2t} \] The substituting it back into the equation we get 
+	\[  u_1' = - \dfrac{3 \csc t \sin 2t}{2} = -3 \cos t\] Then using the double angle formulas we find that 
+	\[ u_2' = \dfrac{3}{2} \csc t - 3 \sin t \] the next step is simply to integrate. Which gives \[ u_1 = -3 \sin t + c_1 \] and \[ u_2 = \dfrac{3}{2} \ln | \csc t - \cot t | + 3 \cos t + c_2 \] Finall substituting and simplifying the solution is 
+	\[ y = 3 \sin t + \dfrac{3}{2} \ln | \csc t - \cot t | \sin 2t + c_1 \cos 2t + c_2 \sin 2t \]
+	This method is far more involved by it offers a general method for solving non homogeneous solutions. 
+\end{example}
+\begin{multicols*}{2}
+	
+\section{Chapter 3 Test}
+
+	\begin{q}
+		Find the general solution of $y'' + 5y' + 6y = 0$
+	\end{q}
+	\begin{q}
+		Find the solution of the initial value problem  
+		\begin{align*}
+		4y'' - 8y' + 3y = 0, && y(0)=2, && y'(0)=\dfrac{1}{2}
+		\end{align*}
+	\end{q}
+	\begin{q}
+		Find the longest interval in which the solution of the initial value problem exists.
+		\begin{align*}
+		(t^2-3t)y'' + ty' - (t+3)y = 0, && y(1)=2, && y'(1)=1
+		\end{align*}
+	\end{q}
+\end{multicols*}

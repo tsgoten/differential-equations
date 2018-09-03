@@ -1,0 +1,80 @@
+\documentclass[11pt]{article}
+\author{Tarang Srivastava}
+\usepackage{amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{esdiff}
+\usepackage[margin=.25in]{geometry}
+\newcommand{\makechaptertitle}[1]{
+\begin{center}
+	\begin{large}
+		DECA Chapter #1 Test
+	\end{large}
+	\begin{small}
+		\\by Tarang Srivastava
+	\end{small}
+\end{center}
+}
+\theoremstyle{definition}
+\newtheorem{q}{}
+
+\begin{document}
+	\setlength\columnsep{.5in}
+	\begin{multicols*}{2}
+		\makechaptertitle{3}
+		\begin{q}
+			Find the general solution of $y'' + 5y' + 6y = 0$
+		\end{q}
+		\begin{q}
+			Find the solution of the initial value problem
+			\[ 4 y'' - 8y' + 3y = 0 \]
+			with initial values $ y(0) = 2 $, and $ y'(0) = 1/2 $\\
+		\end{q}
+		\begin{q}
+			Find the general solution of \[ y''-2y'-2y=0 \]
+		\end{q}
+		\begin{q}
+			Find a differential equation whose general solution is \[ y = c_1 e^{2t}  + c_2 e^{-3t}\]
+		\end{q}
+		\begin{q}
+				Determine the values for $ \alpha $ for which all solutions tend to zero as $ t \rightarrow\infty $ Also find $ \alpha $ for which all nonzero solutions become unbounded as $ t \rightarrow \infty $
+			\[ y'' - (2 \alpha - 1)y' + \alpha(\alpha-1)y = 0 \]
+		\end{q}
+		\begin{q}
+			Arrive at the general solution \[y = e^{\lambda t} (c_1\cos \mu t + c_2 \sin \mu t) \] when the roots of the characteristic equation are complex \\ 
+			Follow the steps below to receive partial credit 
+			\begin{enumerate}
+				\item State the characteristic equation of the function $ ay''+ by' + cy = 0 $
+				\item State the general solution we will arrive. Include the constants $ c $ and $ r $
+				\item State the form for a complex number using $ \lambda $ and $ \mu $
+				\item State Euler's formula 
+				\item Arrive at the form above 
+				\item Explain the range of numbers for $ c_1 $ and $ c_2 $
+			\end{enumerate}
+		\end{q}	
+		\begin{q}
+			Find the solution to the initial value problem 
+			\begin{align*}
+				16y'' - 8y' + 145y = 0, \\ \nonumber
+				y(0) = -2, \indent y'(0)=1 \nonumber
+			\end{align*}
+		\end{q}	
+		\begin{q}
+			Find the general solution of 
+			\[ 9y'' + 9y' - 4y = 0 \]
+		\end{q}
+		\begin{q}
+			Solve the differential equation \[ y'' + 4y' + 4y = 0 \]
+		\end{q}
+		\begin{q}
+			Given that $ y_1(t) = t^{-1} $ is a solution of \[ 2t^2y'' + 3ty' - y = 0, \indent  t>0 \] Find the other linearly independent solution 
+		\end{q}
+		\begin{q}
+		Find a particular solution of \[ y'' - 3y' -4y = 2 \sin t  \]
+		\end{q}
+		
+		
+		
+	
+	\end{multicols*}
+\end{document}

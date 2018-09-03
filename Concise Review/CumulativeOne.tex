@@ -1,0 +1,96 @@
+\documentclass[11pt]{article}
+\author{Tarang Srivastava}
+\usepackage{amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{esdiff}
+\usepackage[margin=.25in]{geometry}
+\geometry{letterpaper,textwidth=7.3in,hmarginratio=1:1,	textheight=9in,vmarginratio=1:1,heightrounded}
+\newcommand{\laplace}[1]{$ \mathcal{L}  \left\{ #1 \right\}$}
+\newcommand{\makechaptertitle}[1]{
+\begin{center}
+	\begin{large}
+		DECA Cumulative I
+	\end{large}
+	\begin{small}
+		\\by Tarang Srivastava
+	\end{small}
+\end{center}
+}
+\theoremstyle{definition}
+\newtheorem{q}{}
+\begin{document}
+	\begin{multicols*}{2}
+		\makechaptertitle{}
+		
+		\textbf{Derivations}
+		\begin{q}
+			Find the general solution for the equation \[ \dfrac{dy}{dt} = ay + b\]
+			State initial value solution for $ y(0) = y_0 $
+		\end{q}
+		\begin{q}
+			Find the general solution for the equation \[ ay'' + by' + cy = 0 \]
+		\end{q}
+		\begin{q}
+			Find the general solution for the equation \[ ay'' + by' + cy = 0 \] when the roots are complex of the form $ 
+			\lambda + \mu i $
+		\end{q}
+		\begin{q}
+			Find a series solution of the equation \[ y(x)'' + y(x) = 0, \indent -\infty < x < \infty \] Follow the steps to receive partial credit
+			\begin{enumerate}
+				\item Find $ y'', y', y $ for the power series of the form $ \sum \limits_{n=0}^\infty a_nx^n$
+				\item Express the sum of the two power series as one 
+				\item Solve a recursive expression
+				\item Find a separate power series for even and odd
+				\item Combine the two for the final answer
+				\item Express $ \sin $ and $ \cos $ as an initial value condition for the final answer
+			\end{enumerate}
+		\end{q}
+		\begin{q}
+			State the Laplace Transform of the first and second derivative in terms of the original function 
+		\end{q}
+		\textbf{Questions}
+		\begin{q}
+			Solve the initial value problem \[ \diff{y}{x} = \frac{3x^2+4x+2}{2(y-1)}, \indent y(0) = -1  \]
+		\end{q}
+		\begin{q}
+			Find the solution of the initial value problem \[  4y'' - 8y' + 3y = 0, \indent y(0) = 2, \indent y'(0) = 1/2   \]
+		\end{q}
+		\begin{q}
+			Find a particular solution of \[ y'' - 3y' - 4y = 2 \sin t \]
+		\end{q}
+		\begin{q}
+			Find the general solution for \[ y'' + 4y' + 4y = 0 \] show all steps
+		\end{q}
+		\begin{q}
+			Find the particular solution for \[ y'' + y' - \dfrac{1}{4} = 0 \]
+		\end{q}
+		\begin{q}
+			Find the general solution for \[ y'' + y' + y = 0 \]
+		\end{q}
+		\begin{q}
+			Find the general solution of \[ y^{iv} - y = 0 \] Also find the solution that satisfies the initial conditions 
+			\begin{align*}
+			y(0) = 7/2 && y'(0) = -4 && y''(0)= 5/2 && y'''(0) = -2
+			\end{align*}
+			you can use a calculator to put it in reduced row-echelon form 
+		\end{q}
+		\begin{q}
+			Find \laplace{\sin at}
+		\end{q}
+		\begin{q}
+			Use the property of derivative transforms to find \laplace{\cos at}
+		\end{q}
+		\begin{q}
+			Find the solution of the differential equation using the Laplace Transform\[ y'' -y' - 2y = 0 \] satisfying the initial condition \[ y(0) = 1, \indent y'(0) = 0 \]
+		\end{q}
+		\begin{q}
+			Use Newton's Laws and Hooke's Law to show
+			\begin{enumerate}
+				\item position of an oscillating spring is given by \[ x(t) =  A \cos (\omega t) \]
+				\item period is given by \[ T = 2 \pi \sqrt{\dfrac{m}{k}} \]
+			\end{enumerate}
+		
+		\end{q}
+	\end{multicols*}
+\end{document}

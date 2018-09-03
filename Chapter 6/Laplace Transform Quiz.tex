@@ -1,0 +1,58 @@
+\documentclass[11pt]{article}
+\author{Tarang Srivastava}
+\usepackage{amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{esdiff}
+\usepackage[margin=.25in]{geometry}
+\geometry{letterpaper,textwidth=7.3in,hmarginratio=1:1,	textheight=9in,vmarginratio=1:1,heightrounded}
+\newcommand{\laplace}[1]{$ \mathcal{L}  \left\{ #1 \right\}$}
+\newcommand{\heaviside}[1]{u_{#1} (t)}
+\newcommand{\makechaptertitle}{
+\begin{center}
+	\begin{large}
+		Laplace Transform Quiz
+	\end{large}
+	\begin{small}
+		\\by Tarang Srivastava
+	\end{small}
+\end{center}
+}
+\theoremstyle{definition}
+\newtheorem{q}{}
+\begin{document}
+	\begin{multicols*}{2}
+		\makechaptertitle
+		
+		\begin{q}
+			Define the Laplace Transform for a function $ f(t) $
+		\end{q}
+		\begin{q}
+			Find \laplace{1}
+		\end{q}
+		\begin{q}
+			Find \laplace{e^{at}}
+		\end{q}
+		\begin{q}
+			Find \laplace{\sin at}
+		\end{q}
+		\begin{q}
+			Show that the Laplace Transform is a linear operator
+		\end{q}
+		\begin{q}
+			Find \laplace{5e^{-2t} - 3 \sin 4t}
+		\end{q}
+		\begin{q}
+			Define the Laplace Transform for a function $ f'(t) $
+		\end{q}
+		\begin{q}
+			Find \laplace{\cos at} using the property from the previous question 
+		\end{q}
+		\begin{q}
+			Find \laplace{\heaviside{c}}
+		\end{q}
+		\begin{q}
+			Find \laplace{\heaviside{c}f(t-c)}
+		\end{q}
+	\end{multicols*}
+\end{document}

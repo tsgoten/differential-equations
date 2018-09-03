@@ -1,0 +1,75 @@
+\chapter{Higher Order Linear Equations}
+\section{Homogeneous Equations with Constant Coefficients}
+Consider the nth order linear homogeneous differential equation \[ L[y] = a_0 y^{(n)} + a_1 y^{(n+1)} + ... +  a_{n-1} y' + a_n y\]. If we anticipate that $ y = e^{rt} $ then we get \[ L[e^{rt}] = e^{rt}(a_0r^n+a_1r^{n-1}+...+a_{n-1}r + a_n) = e^rt Z(r) \] We call $ Z(r) $ the \textbf{characteristic polynomial}, thus we can use this to solve the differential. 
+\begin{example}
+	Find the general solution of \[ y'''' + y''' - 7y'' - y' + 6y = 0 \]
+	Also find the general solution that satisfies the initial conditions 
+	\begin{align*}
+	y(0)=1 && y'(0) = 0 && y''(0) = -2 && y'''(0) = -1
+	\end{align*}
+	We begin by first finding the characteristic polynomial 
+	\[ Z(r) = r^4 + r^3 - 7r^2 - r + 6 = 0 \]
+	The roots for which are $ r = 1, -1, 2, -3 $ therefor the general solution is 
+	\[ y = c_1 e^t + c_2e^{-t}+ c_3 e ^{2t} + c_4 e ^{-3t}\]
+	The initial conditions require that the constants satisfy the four equations from the derivatives of the general solution 
+	\begin{align*}
+	c_1 + c_2 + c_3 + c_4 &= 1 \\
+	c_1 - c_2 + 2c_3 - 3c_4 &= 0 \\
+	c_1 + c_2 + 4c_3 + 9c_4 &= -2 \\
+	c_1 - c_2 + 8c_3 - 27c_4 &= -1 \\
+	\end{align*}
+	By solving the system we find the solution 
+	\[ y = \dfrac{11}{8}e^t + \dfrac{5}{12}e^{-t} - \dfrac{2}{3}e^{2t} - \dfrac{1}{8}e^{-3t} \]
+\end{example}
+	Now we consider the situation where the roots are complex. Similar to earlier we refer to the form \[ r_1, r_2 = c_1e^{\lambda t} \cos \mu t + c_2e^{\lambda t} \sin \mu t\]. Remember that complex roots appear in pairs.
+\begin{example}
+Find the general solution of \[ y^{iv} - y = 0 \] Also find the solution that satisfies the initial conditions 
+\begin{align*}
+y(0) = 7/2 && y'(0) = -4 && y''(0)= 5/2 && y'''(0) = -2
+\end{align*}
+We again start with the characteristic polynomial $$ r^4 - 1 =0 $$ which we can factorize to $$ (r^2 + 1)(r-1)(r+1) = 0 $$ thus the roots are \[ r = \pm 1, \pm i \] using the roots we find the general solution 
+\[y = c_1 e^t  + c_2 e^{-t} + c_3\cos t + c_4 \sin t\] similar to the previous example we find the derivatives of the general solution to solve for the particular solution. The values of the constants are \begin{align*}
+c_1 = 0 && c_2 = 3 && c_3 = 1/2 && c_4 = -1
+\end{align*}
+Which gives the final solution
+\[ y = 3e^{-t} + \dfrac{1}{2} \cos t - \dfrac{17}{16} \sin t\]
+\end{example}
+
+\section{The Method of Undetermined Coefficients}
+We can solve higher order equations similar to how we solve first and second order. 
+\begin{example}
+	Find the general solution of \[ y''' - 3y'' + 3y' - y = 4e^t \]
+	We begin by anticipating that $ y(t) $ will be of the form $ Ae^{rt} $ The characteristic polynomial is \[ r^3 - 3r^2 + 3r - r \] which we can factorize to \[ (r-1)^3 \]. Since this is a situation where the roots are repeated, we know that the general form will be 
+	$ c_1 t^2 e^t + c_2 t e^t + c_3 e^t $ now we must change our assumption to $ At^3 e^rt $ but since $ r = 1 $ we can remove that term. Then differentiating and collecting terms we find \[ 6Ae^t = 4e^t \] thus the particular solution is \[ Y(t) = \dfrac{2}{3}t^3e^t \]
+\end{example}
+\theoremstyle{definition}
+
+\begin{multicols*}{2}
+\section{Chapter 4 Assessment}
+	
+	\begin{q}
+		Find the general solution of \[ y'''' + y''' - 7y'' - y' + 6y = 0 \]
+		Also find the general solution that satisfies the initial conditions 
+		\begin{align*}
+		y(0)=1 && y'(0) = 0 && y''(0) = -2 && y'''(0) = -1
+		\end{align*}
+	\end{q}
+	\begin{q}
+		Find the general solution of \[ y^{iv} - y = 0 \] Also find the solution that satisfies the initial conditions 
+		\begin{align*}
+		y(0) = 7/2 && y'(0) = -4 && y''(0)= 5/2 && y'''(0) = -2
+		\end{align*}
+	\end{q}
+	\begin{q}
+		Find the general solution of \[ y''' - 3y'' + 3y' - y = 4e^t \]
+	\end{q}
+	\begin{q}
+		Find a particular solution of the equation \[ y^{iv} + 2y'' + y = 3 \sin t - 5 \cos t \]
+	\end{q}
+	\begin{q}
+		find a particular solution of \[ y''' - 4y' = t + 3 \cos t + e^{-2t} \]
+	\end{q}
+	\begin{q}
+		Given that $ y_1(t) e^t$, $y_2(t) = t e^t $, and $ y_3(t)= e^{-t} $ are solutions of the homogeneous equation corresponding to \[ y''' - y'' - y' + y = g(t)  \] determind a particular solution in terms of an integral
+	\end{q}
+\end{multicols*}

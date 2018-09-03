@@ -1,0 +1,166 @@
+\chapter{Series Solutions of Second Order Linear Equations}
+\section{Review of Power Series}
+	In this chapter we will use power series to create fundamental sets of solutions. First, we will begin with a review of power series. 
+	
+	\begin{enumerate}
+		\item A power series $ \sum \limits_{n=0}^{\infty} = a_n(x-x_0)^n$ is said to converge at a point $ x $ if \[ \lim\limits_{m \rightarrow \infty} \sum \limits_{n=0}^m a_n (x-x_0)^n \] exists for that $ x $. The series certainly converges for $ x = x_0 $; it may converge for all $ x $, or it may converge for some values of $ x $ and not for others. 
+		\item The series $ \sum \limits_{n=0}^{\infty} = a_n(x-x_0)^n$ is said to converge at a point $ x $ if the series 
+		$$ \sum \limits_{n=0}^{\infty} =  \vline a_n(x-x_0)^n \vline = \sum \limits_{n=0}^{\infty} = \vline a_n \vline \vline (x-x_0)^n \vline $$ converges. It can be shown that if the series converges absolutely, then the series also converges; however, the converse is not necessarily true. 
+		\item One of the most useful tests for the absolute convergence of a power series is the ratio test. if $ a_n \neq 0 $, and if, for a fixed value $ x $. \[ \lim_{n \rightarrow \infty} \vline \dfrac{a_{n+1}(x-x_0)^{n+1}}{a_n(x-x_0)^n} \vline = |x-x_0| \lim_{n \rightarrow \infty} \dfrac{a_{n+1}}{a_n} = |x-x_0|L\] Then the power series converges absolutely at that value of $ x $ if $ |x-x_0|L<1 $ and diverges if $ |x-x_0|L>1 $. if $ |x-x_0|L=1 $ test is inconclusive
+		\item If the power series $ \lim\limits_{m \rightarrow \infty} \sum \limits_{n=0}^m a_n (x-x_0)^n $ converges at $ x = x_1 $, it converges absolutely for $ |x-x_0| < |x_1-x_0| $; and if it diverges at $ x = x_1 $, it diverges for $ |x-x_0| > |x_1-x_0| $.
+		\item For power series there is a value $ \rho $, the radius of convergence, $ \lim\limits_{m \rightarrow \infty} \sum \limits_{n=0}^m a_n (x-x_0)^n $ for which the series converges absolutely if $ |x - x_0| < \rho $ and diverges for $ |x-x_0| > \rho $. For a series that converges only at $ x_0 $ we define $ \rho $ to be zero. Such we can find the \textbf{interval of convergence} which tells us where the series converges. The series may either converge or diverge when $ |x-x_0| = \rho $ 
+		
+		\begin{example}
+			Determine the radius of convergence of the power series \[ \sum \limits_{n=1}^\infty \dfrac{(x+1)^n}{n2^n} \] We begin by applying the ratio test
+			\[ \lim_{n \rightarrow \infty} \vline \dfrac{(x+1)^{n+1}(n2^n)}{(n+1)2^{n+1}(x+1)^n} \vline = \dfrac{|x+1|}{2} \lim_{n \rightarrow \infty} \dfrac{n}{n+1} = \dfrac{|x+1|}{2}\] The ratio test states that the series converges if the limit $ L < 1 $. So we solve for the solution when $ \dfrac{|x+1|}{2} < 1 $ and find that it is follows the inequality when $ -3<x<1 $
+		\end{example}
+		\item The series can be added or subtracted likewise \[ f(x) \pm g(x) = \sum \limits_{n=0}^\infty (a_n \pm b_n)(x-x_0)^n \]
+		\item The series can be formally multiplied 
+		\[ f(x)(g(x) = (\sum \limits_{n=0}^m a_n (x-x_0)^n)(\sum \limits_{n=0}^m b_n (x-x_0)^n) = (\sum \limits_{n=0}^m c_n (x-x_0)^n)\]
+		And can also be divided as such 
+		\item The function $ f $ is continuous and has derivatives of all orders for $ |x-x_0| < \rho $. Further, $ f',f'',... $ can be computed by differentiating the series term wise; that is 
+		\begin{align*}
+			f(x) &= \sum \limits_{n=0}^m a_n (x-x_0)^n \\
+			f'(x) &= \sum \limits_{n=0}^m na_n (x-x_0)^{n-1} \\
+			f''(x) &= \sum \limits_{n=0}^m n(n-1)a_n (x-x_0)^{n-2} \\
+		\end{align*}
+		and so forth, and each of the series converges absolutely for $ |x-x_0| < \rho $. 
+		\item The value of $ a_n $ is given by \[ a_n = \dfrac{f^{(n)}(x_0)}{n!} \] The series is called the Taylor series for the function $ f $ about $ x = x_0 $.
+		\item if $ \sum \limits_{n=0}^m a_n (x-x_0)^n = \sum \limits_{n=0}^m b_n (x-x_0)^n$ for each $ x $, then $ a_n = b_n $ for $ n = 0,1,2,3,... $ In particular, if $ \sum \limits_{n=0}^m a_n (x-x_0)^n  = 0$ for each $ x $ then $ a_0 = a_1 = ... = a_n = ... = 0 $
+	\end{enumerate}
+	\begin{example}
+		Write the series \[ \sum \limits_{n=2}^{\infty} (n+2)(n+1)a_n(x-x_0)^{n-2}  \] as a series whose generic term involves $ (x-x_0)^n $ rather than $ (x-x_0)^{n-2} $
+		\[ \sum \limits_{n=0}^{\infty} (n+4)(n+3)a_{n+2}(x-x_0)^{n} \]
+	\end{example}
+\section{Series Solutions Near an Ordinary Point, Part I}
+	This deals with solving for when the coefficient is not a constant for a second order differential equation. We can use this method when in the differential equation of the form 
+	\[ y'' + p(x) y' + q(x)y = 0 \] $ p(x) $ and $ q(x) $ can be expressed as a solution to a power series of the form $ \sum \limits_{n=0}^m a_n (x-x_0)^n $. Additionally we assume that the series converges in the interval $ |x-x_0| < \rho $ 
+	
+	\begin{example}
+		This is exciting Find a series solution of the equation \[ y'' + y = 0, \indent -\infty < x < \infty \]
+		\begin{gather}
+			\intertext{We begin by assuming that the function will have the form} 
+			y = a_0 + a_1x + a_2x^2 + ... = \sum \limits_{n=0}^\infty a_nx^n 
+			\intertext{Taking the first and second derivative we get}
+			y' = a_1 + 2a_2x + 3a_3x^2 + ... = \sum \limits_{n=1}^m na_n (x)^{n-1} \\
+			y'' = 2a_2 + 6a_3x + ... = \sum \limits_{n=2}^\infty n(n-1)a_nx^{n-2} \\
+			\intertext{Note how the first term, a constant, drops off each time the derivative is taken and the starting value form $ n $ increases each successive derivative. Substituting the power series into (5.1) we get} 
+			 \sum \limits_{n=2}^\infty n(n-1)a_nx^{n-2} +  \sum \limits_{n=0}^\infty a_nx^n  = 0 
+			 \intertext{We will now shift the index of summation of the second derivative power series. We do this for two reasons. First, we want the $ x^n $ component to agree in both power series so when we add the power series we can distribute it out. We also want to shift the power series so we can actually add the power series without leaving any terms out}
+			 \sum \limits_{n=0}^\infty (n+2)(n+1)a_{n+2}x^n + \sum \limits_{n=0}^\infty a_nx^n = 0 \\ 
+			 \sum \limits_{n=0}^\infty [(n+2)(n+1)a_{n+2}+a_n]x^n = 0
+			 \intertext{ We know that $ x^n > 0$ so we must set the expression }
+			  (n+2)(n+1)a_{n+2}+a_n = 0 
+			  \intertext{We can now see that we can express one of the coefficient term with respect to the other}
+			  a_{n+2} = - \dfrac{a_n}{(n+2)(n+1)}
+		\end{gather}
+		\begin{align*}
+		\intertext{Now we simply plug in values for $ n $ and notice a pattern emerges }
+		a_2 = - \dfrac{a_0}{2*1} = - \dfrac{a_0}{2!} && a_3 = - \dfrac{a_1}{3*2} = - \dfrac{a_1}{3!} 
+		\intertext{plugging in the values from the previous value in terms of $ a_0 $ and $ a_1 $}
+		a_4 = - \dfrac{a_2}{4*3} = +\dfrac{a_0}{4!} && a_5 = - \dfrac{a_3}{5*4} = + \dfrac{a_1}{5!} \\
+		a_6 = - \dfrac{a_4}{6*5} = - \dfrac{a_6}{6!} && a_7 = - \dfrac{a_5}{7*6} = - \dfrac{a_1}{7!} \\
+		\intertext{We can now summarize this as two separate expressions, with respect to $ a_0 $ and $ a_1 $} 
+		\end{align*}
+		\begin{align}
+			2k = n \\
+			a_{2k} = \dfrac{(-1)^k}{(2k)!} a_{0} && a_{2k+1} = \dfrac{(-1)^k}{(2k+1)!}a_1
+			\intertext{Substituting in the values, the solution is}
+			y = a_0 \sum \limits_{n=0}^\infty \dfrac{(-1)^n}{(2n)!} x^{2n} + a_1 \sum \limits_{n=0}^\infty \dfrac{(-1)^n}{(2n+1)!} x^{2n+1}
+		\end{align}
+		That is the end of the example, but there is an interesting side note associated with the solution. If you look at the series, they are the Taylor Series expansion for $ \sin x$ and $\cos x $. Also $ a_0 $ and $ a_1 $ are an arbitrary constants that will yield the solution. We can alternatively obtain the value for the trig functions as initial value conditions for the following equation. We can see that if $ a_0 = 1 $ that is $ y(0) = 0 $ and $ y'(0) =1 $ we get that value for $ \sin $ and you can find $ \cos $ likewise
+	\end{example}
+
+	\begin{example}
+		Find the power series solution of Airy's Equation 
+		\[ y'' - xy = 0 \]
+		in powers of $ x-1 $ \\
+		We first begin by considering the general form for the solution and the derivatives
+		\begin{align*}
+			y &= \sum \limits_{n=0}^\infty a_n(x-1)^n \\
+			y' &= \sum \limits_{n=1}^\infty na_n (x-1)^{n-1} \\
+			y'' &= \sum \limits_{n=2}^\infty n (n-1) a_n (x-1)^{n-2}
+			\intertext{We have found our $ y'' $ term but we must still represent the $ xy $ term}
+			xy &= x \sum \limits_{n=0}^\infty a_n(x-1)^n 
+		\end{align*}
+		Now we employ a clever trick to get the all the sums to look the same. We will represent the $ x $ as $ x = (1 + (x-1)) $ thus we get
+		\[ xy = (1 + (x-1)) \sum \limits_{n=0}^\infty a_n(x-1)^n = \sum \limits_{n=0}^\infty a_n(x-1)^n + \sum \limits_{n=0}^\infty a_n(x-1)^{n+1} \] 
+		We shift two of the sums to get them all to the desired form
+		\begin{align*}
+		 y'' &= \sum \limits_{n=0}^\infty (n+2) (n+1) a_{n+2} (x-1)^{n} \\
+		 xy &= \sum \limits_{n=0}^\infty a_n(x-1)^n + \sum \limits_{n=1}^\infty a_{n-1}(x-1)^{n}
+		\end{align*}
+		We now essentially run through values of $ n $ and observe the pattern 
+		\begin{align*}
+			y'' &= xy \\
+			\sum \limits_{n=0}^\infty (n+2) (n+1) a_{n+2} (x-1)^{n} &= \sum \limits_{n=0}^\infty a_n(x-1)^n + \sum \limits_{n=1}^\infty a_{n-1}(x-1)^{n}\\
+			\intertext{The $ x-1 $ tern divides out from all the sums leavind us with}
+			a_2 &= a_0 \\
+			(3 * 2) a_3 &= a_1 + a_0\\
+			(4 * 3) a_4 &= a_2 + a_1 \\
+			(5*4) a_5 &= a_3 + a_2 \\
+			\vdots 
+		\end{align*}
+		Solving for the coefficients in the series we get 
+		\[ a_2 = \dfrac{a_2}{2}, \indent a_3 = \dfrac{a_1}{6} + \dfrac{a_0}{6}, \indent a_4 = \dfrac{a_2}{12} + \dfrac{a_1}{12} = \dfrac{a_0}{24} + \dfrac{a_1}{12}, \indent a_5 = \dfrac{a_3}{20} + \dfrac{a_2}{20} = \dfrac{a_0}{30} + \dfrac{a_1}{120}\]
+		Hence
+		$$ y = a_0 \left[ 1 + \dfrac{(x-2)^2}{2} + \dfrac{(x-1)^3}{6} + \dfrac{(x-1)^4}{24} + ...\right] + a_1\left[ (x-1) + \dfrac{(x-1)^3}{6} + \dfrac{(x-1)^4}{12} + ...  \right]$$
+		As a side note it will be very difficult to come up with a general rule for the power series, so we will not be able see where the series converges 
+	\end{example}
+
+\section{Series Solutions Near and Ordinary Point, Part II}
+If $ x_0 $ is an ordinary point of the differential equation \[ P(x)y'' + Q(x) y' + R(x)y = 0 \] that is, if $ p = Q/P $ and $ q = R/P $ are analytic at $ x_0 $, which means they can be expressed as a Taylor expansion at that point, that the general solution is \[ y = \sum \limits_{n=0}^\infty a_n (x-x_0)^n = a_0 y_1 (x) + a_1 y_2 (x) \] where $ a_0 $ and $ a_1 $ are arbitrary, and $ y_1 $ and $ y_2 $ are linearly independent series solutions that are analytic at $ x_0 $. Further, the radius of convergence for each of the series solutions $ y_1 $ and $ y_2 $ is at least as large as the minimum of the radii of convergence of the series for $ p $ and $ q $ 
+\begin{example}
+	What is the radius of convergence of the Taylor series for $ (1+x^2)^{-1} $ about $ x = 0 $? \\
+	As a quick review
+	\[ f(x) = \sum \limits_{n=0}^\infty \dfrac{f^{(n)} (0) x^n }{n!} = \dfrac{f(0)}{0!} + \dfrac{f'(0)x}{1!} + \dfrac{f''(0)x^2}{2!} + \dfrac{f''' (0) x^3}{3!}\] 
+	So we proceed by finding the Taylor series 
+	\[ \dfrac{1}{1=x^2} = 1 -x ^2 + x^4 - x^6 + ... + (-1)^n x^{2n} + ...\]
+	We can use the ratio test to find that $ \rho = 1 $
+\end{example}
+\begin{example}
+	What is the radius of convergence of the Taylor series for $ (x^2 - 2x + 2)^{-1} $ about $ x = 0 $? about $ x = 1 $? \\
+	First we notice that the expression $ x^2 - 2x + 2 = 0  $ has solutions $ x = 1 \pm i $. The distance from $ x=0 $ to either of the complex roots is $ \sqrt{2} $, similarly the distance from $ x =1 $ to any of the roots is equal to $ 1 $
+\end{example}
+
+\section{Euler Equations; Regular Singular Points}
+Consider again the equation \[ P(x)y'' + Q(x)y' + R(x)y = 0 \] the \textbf{singular points} are the points where $ P(x) = 0  $ since we divide the other polynomials by $ P(x) $ these are critical points. We will find the radius of convergence to deal with such points 
+\begin{example}
+	What is the radius of convergence of the Taylor series for $ (x^2 - 2x + 2)^{-1} $ about $ x = 0 $? We begin by finding the roots for \[ x^2 - 2x + 2 = 0 \] which are $ x = 1 \pm i $. This tells us that the distance away from $ x = 0 $ is $ \sqrt{2}  $.This idea can be extended to find several solutions as such. 
+\end{example}
+\section{Chapter 5 Assessment}
+	\begin{multicols*}{2}
+	
+	\begin{q}
+		
+		Write the series \[ \sum \limits_{n=2}^{\infty} (n+2)(n+1)a_n(x-x_0)^{n-2}  \] as a series whose generic term involves $ (x-x_0)^n $ rather than $ (x-x_0)^{n-2} $
+		
+	\end{q}
+	\begin{q}
+		Determine the radius of convergence of the power series \[ \sum \limits_{n=1}^\infty \dfrac{(x+1)^n}{n2^n} \]
+	\end{q}
+	\begin{q}
+		Find a series solution of the equation \[ y(x)'' + y(x) = 0, \indent -\infty < x < \infty \] Follow the steps to receive partial credit
+		\begin{enumerate}
+			\item Find $ y'', y', y $ for the power series of the form $ \sum \limits_{n=0}^\infty a_nx^n$
+			\item Express the sum of the two power series as one 
+			\item Solve a recursive expression
+			\item Find a separate power series for even and odd
+			\item Combine the two for the final answer
+			\item Express $ \sin $ and $ \cos $ as an initial value condition for the final answer
+		\end{enumerate}
+	\end{q}
+	\begin{q}
+		Find a power series solution for Airy's equation 
+		\[ y'' - xy = 0 \]
+	\end{q}
+	\begin{q}
+		Find a solution for Airy's equation in powers of $ x-1 $
+	\end{q}
+	\begin{q}
+		Solve \[ 2x^2 y'' + 3xy' - y = 0, \indent x> 0 \]
+	\end{q}
+	\begin{q}
+		Solve \[ x^2 y'' + 5xy' + 4y = 0, \indent x>0 \]
+	\end{q}
+\end{multicols*}
